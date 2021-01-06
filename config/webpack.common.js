@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/widget/index.ts',
   module: {
     rules: [
       {
@@ -18,13 +18,22 @@ module.exports = {
             options: {
               configFile: 'config/.eslintrc'
             }
-          }
+          },
         ], 
         exclude: /node_modules/,
+      },
+      { 
+        test: /\.html$/i, 
+        use: 'html-loader' 
+      },
+      { 
+        test: /\.css$/i, 
+        use: ['style-loader', 'css-loader'] 
       },
     ],
   },
   plugins: [
+  
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
