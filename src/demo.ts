@@ -8,7 +8,7 @@ const configs = [
     backgroundColor: 'yellow',
     textColor: 'black'
   },
-  { 
+  {
     lang: 'ru'
   },
   {}
