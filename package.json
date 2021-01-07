@@ -1,6 +1,6 @@
 {
   "name": "tp-widget",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -32,5 +32,9 @@
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
-  }
+  },
+  "unpkg": "dist/widget.js",
+  "files": [
+    "dist"
+  ]
 }

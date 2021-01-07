@@ -26,7 +26,9 @@ const tempalte = (styles, config) => {
       </div>
       <input type="date"  class="${styles.datepicker}" />
       <input type="date"  class="${styles.datepicker}" />
-      <button type="submit" style="${config.buttonColor ? 'background-color: ' + config.buttonColor : ''}; color: inherit" class="${styles.button}">search</button>
+      <button type="submit" style="${config.buttonColor ? 'background-color: ' + config.buttonColor : ''}; color: inherit" class="${styles.button}">
+        ${config.lang == 'ru' ? 'поиск' : 'search'} 
+      </button>
     </form>`
   );
 };
