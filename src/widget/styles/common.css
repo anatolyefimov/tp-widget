@@ -22,10 +22,6 @@
   margin-bottom: 10px;
 }
 
-::placeholder {
-  color: gray;
-}
-
 .datepicker,
 .button {
   height: 40px;
@@ -37,6 +33,25 @@
 
 .datepicker {
   box-sizing: border-box;
+  position: relative;
+  border:none;
+  padding: 14px;
+  box-sizing: border-box;
+  font-family:  'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.datepicker::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url(../calendar.svg) no-repeat;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 13px;
+  right: 0px;
+  /* border-width: thin; */
 }
 
 .button {

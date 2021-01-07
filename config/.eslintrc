@@ -23,6 +23,7 @@
           "always"
       ],
       "no-trailing-spaces": "error",
-      "block-spacing": "error"
+      "block-spacing": "error",
+      "no-useless-escape": 0
   }
 }

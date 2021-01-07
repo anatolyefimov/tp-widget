@@ -2,7 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/widget/index.ts',
+  entry: {
+    widget: './src/widget/index.ts',
+    demo: './src/demo.ts'
+  },
   module: {
     rules: [
       {
@@ -36,31 +39,29 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [
-                  [
-                    "postcss-preset-env",
-                    {
-                      // Options
-                    },
-                  ],
-                ],
+                plugins: [ "postcss-preset-env" ],
               },
             },
           },
         ] 
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js', '.css'],
-    alias: {
-      '@' : path.resolve(__dirname, 'src')
-    }
+    extensions: [ '.tsx', '.ts', '.js', '.css']
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      chunks: ['demo']
     }),
-  ]
+  ],
+  output: {
+    filename: '[name].js',
+  }
 };
 

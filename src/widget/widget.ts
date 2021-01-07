@@ -50,27 +50,32 @@ class Widget {
   config: IConfig;
   elem: Element;
 
-  constructor() {
-
+  constructor(config:IConfig = {}) {
+    this.config = config;
+    console.log(config);
   }
 
   init(): void {
     const styles = fitStyles(document.currentScript.parentElement);
 
     const templateNodeRoot = document.createElement('div');
-    templateNodeRoot.innerHTML = template(styles);
+    templateNodeRoot.innerHTML = template(styles, this.config);
     const templateNode = templateNodeRoot.firstChild;
     this.elem = templateNodeRoot.children[0];
 
     window.addEventListener('resize', this.handleResize.bind(this));
+
     document.currentScript.parentNode.insertBefore(templateNode, document.currentScript);
+    console.log(this.elem.querySelector( 'button'));
+    this.elem.addEventListener('submit', e => {
+      e.preventDefault();
+    });
+    this.handleResize();
   }
 
   handleResize(): void {
-    console.log('resize...');
-    console.log(this.elem);
     const styles = fitStyles(this.elem);
-    this.elem.innerHTML = template(styles);
+    this.elem.innerHTML = template(styles, this.config);
   }
 }
 
