@@ -1,9 +1,6 @@
-import formHtmlString from './template.html';
-import './style.css';
+import Widget from './widget';
 
 (function() {
-  const template = document.createElement('div');
-  template.innerHTML = formHtmlString.trim();
-
-  document.currentScript.parentNode.insertBefore(template.firstChild, document.currentScript);
+  const widget = new Widget();
+  widget.init();
 })();

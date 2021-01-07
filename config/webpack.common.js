@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -28,15 +29,38 @@ module.exports = {
       },
       { 
         test: /\.css$/i, 
-        use: ['style-loader', 'css-loader'] 
+        use: [
+          'style-loader', 
+          'css-loader?modules',
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "postcss-preset-env",
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ] 
       },
     ],
   },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js', '.css'],
+    alias: {
+      '@' : path.resolve(__dirname, 'src')
+    }
+  },
   plugins: [
-  
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-  ],
+  ]
 };
 

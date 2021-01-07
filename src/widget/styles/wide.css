@@ -1,0 +1,17 @@
+.description {
+  flex-basis: 100%;
+}
+
+.button {
+  margin-left: 10px
+}
+
+.title {
+  font-size: 24px;
+  flex-basis: 100%;
+}
+
+.button,
+.datepicker {
+  flex-basis: 32%;
+}

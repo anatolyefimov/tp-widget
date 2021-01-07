@@ -1,0 +1,15 @@
+.description,
+.button,
+.datepicker {
+  flex-basis: 100%;
+}
+
+.datepicker,
+.button {
+  margin-bottom: 10px;
+}
+
+.description  {
+  order: 5;
+  margin-bottom: 0;
+}
